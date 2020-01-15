@@ -1,16 +1,59 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    <head>
-        <title>TODO post layout</title>
-    </head>
-    <body>
-        <h1>TODO post layout</h1>
-        <p>{{page.author}}</p>
-        <p>{{ page.date | date: '%b %e, %Y' }}</p>
-        <p>{% for category in page.categories %}{{category}} {% endfor %}</p>
-        <p>{{page.title}}</p>
-        <p>{{page.subtitle}}</p>
-        <img src="{{site.baseurl}}{{page.main_image}}" alt="Project Image"/>
-        {{content}}
-    </body>
+
+<head>
+	<!-- start head include -->
+	{% include head.html %}
+	<!-- end head include -->
+</head>
+
+<body class="homepage is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<!-- start header include -->
+		{% include header.html %}
+		<!-- end header include -->
+
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+
+						<!-- Content -->
+						<section>
+							<header class="major">
+								<h2>{{page.title}}</h2>
+							</header>
+							<div class="row">
+								<div class="col-12">
+									<span class="image fit"><img
+											src="{{site.baseurl}}{{page.main_image}}"
+											alt="Main Image" /></span>
+									<em>{{ page.date | date: '%A %b %e, %Y' }} in {% for category in page.categories %}{{category}} {% endfor %}</em>
+									<br />
+									<br />
+									{{content}}
+								</div>
+							</div>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<!-- start footer include -->
+		{% include footer.html %}
+		<!-- end footer include -->
+	</div>
+</body>
+
 </html>

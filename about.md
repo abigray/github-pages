@@ -1,6 +1,6 @@
 ---
 layout: about
-title: All About Me
+title: Abigail Gray
 main_image: /assets/images/me.jpg
 permalink: /about/
 ---
