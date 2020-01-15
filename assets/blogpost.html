@@ -16,8 +16,10 @@
 	<div id="page-wrapper">
 
 		<!-- Header -->
-                {% include header.html %}
-		
+		<!-- start header include -->
+		{% include header.html %}
+		<!-- end header include -->
+
 		<!-- Main -->
 		<section id="main">
 			<div class="container">
@@ -27,13 +29,18 @@
 						<!-- Content -->
 						<section>
 							<header class="major">
-								<h2>Welcome</h2>
+								<h2>{{page.title}}</h2>
 							</header>
 							<div class="row">
 								<div class="col-12">
-									<span class="image fit"><img src="{{site.baseurl}}{{page.main_image}}"
+									<span class="image fit"><img
+											src="{{site.baseurl}}{{page.main_image}}"
 											alt="Main Image" /></span>
-									{{content}}				</div>
+									<em>Dec 01 2019 in {% for category in page.categories %}{{category}} {% endfor %}</em>
+									<br />
+									<br />
+									{{content}}
+								</div>
 							</div>
 						</section>
 
@@ -43,7 +50,9 @@
 		</section>
 
 		<!-- Footer -->
+		<!-- start footer include -->
 		{% include footer.html %}
+		<!-- end footer include -->
 	</div>
 </body>
 

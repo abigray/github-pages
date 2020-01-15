@@ -1,14 +1,71 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    <head>
-        <title>TODO project list</title>
-    </head>
-    <body>
-        <h1>TODO project list</h1>
-        <ul>
-            {% for project in site.projects %}
-            <li><a href="{{site.baseurl}}{{project.url}}">{{project.title}}</a> {% for category in project.categories %}{{category}} {% endfor %}</li>
-            {% endfor %}
-        </ul>
-    </body>
+
+<head>
+	<!-- start head include -->
+	{% include head.html %}
+	<!-- end head include -->
+</head>
+
+<body class="homepage is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<!-- start header include -->
+		{% include header.html %}
+		<!-- end header include -->
+
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+
+						<!-- Portfolio -->
+						<section>
+							<header class="major">
+								<h2>{{page.title}}</h2>
+							</header>
+							<div class="row">
+								<!-- project for loop starts here -->
+								{% for project in site.projects %}
+								<!-- project box starts here -->
+								<div class="col-4 col-6-medium col-12-small">
+									<section class="box">
+										<a href="{{site.baseurl}}{{project.url}}" class="image featured"><img
+												src="{{site.baseurl}}{{project.main_image}}" alt="" /></a>
+										<header>
+											<h3>{{project.title}}</h3>
+											<p>{% for category in project.categories %}{{category}} {% endfor %} </p>
+										</header>
+										<p>{{project.subtitle}}</p>
+										<footer>
+											<ul class="actions">
+												<li><a href="{{site.baseurl}}{{project.url}}" class="button alt">Find out more</a></li>
+											</ul>
+										</footer>
+									</section>
+								</div>
+								<!-- project box ends here -->
+								{% endfor %}
+								<!-- project for loop ends here -->
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<!-- start footer include -->
+		{% include footer.html %}
+		<!-- end footer include -->
+	</div>
+</body>
+
 </html>
